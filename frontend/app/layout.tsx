@@ -29,8 +29,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
 
-        {/* Area Header */}
-        <header>
+        {/* Area Header dengan background */}
+        <header className="bg-yellow-500 py-4">
           <div className="flex justify-between items-center">
             <Image
               src={"/images/logo.png"}
@@ -38,7 +38,10 @@ export default function RootLayout({
               height={320}
               alt="Logo"
             ></Image>
-            <h1 className="text-right font-bold text-blue-500 text-2xl pr-4">E-Ruang UTI</h1>
+            <div className="flex justify-end">
+              <h1 className="font-bold text-white text-2xl pr-4">Data Ruang</h1>
+              <h2 className="font-bold text-white text-2xl pl-4 pr-4">Pinjam Ruang</h2>
+            </div>
           </div>
         </header>
          {/* area content */}
