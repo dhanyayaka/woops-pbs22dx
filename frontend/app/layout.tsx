@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+        {/* Area Header */}
+        <header>
+          <div className="flex justify-between items-center">
+            <Image
+              src={"/images/logo.png"}
+              width={320}
+              height={320}
+              alt="Logo"
+            ></Image>
+            <h1 className="text-right font-bold text-blue-500">Platform Peminjaman Ruang</h1>
+          </div>
+        </header>
         {children}
       </body>
     </html>
