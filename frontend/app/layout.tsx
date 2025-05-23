@@ -48,7 +48,7 @@ export default function RootLayout({
         <section className="m-10">{children}</section>
 
         {/* area footer */}
-        <footer className="text-center text-blue-500" >
+        <footer className="text-center text-yellow-500" >
           Copyright &copy; 2025 Woops - ERuang UTI
         </footer>
       </body>
