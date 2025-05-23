@@ -38,7 +38,7 @@ export default function RootLayout({
               height={320}
               alt="Logo"
             ></Image>
-            <h1 className="text-right font-bold text-blue-500 text-2xl">Platform Peminjaman Ruang</h1>
+            <h1 className="text-right font-bold text-blue-500 text-2xl pr-4">E-Ruang UTI</h1>
           </div>
         </header>
          {/* area content */}
