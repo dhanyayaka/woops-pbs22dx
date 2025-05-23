@@ -38,10 +38,16 @@ export default function RootLayout({
               height={320}
               alt="Logo"
             ></Image>
-            <h1 className="text-right font-bold text-blue-500">Platform Peminjaman Ruang</h1>
+            <h1 className="text-right font-bold text-blue-500 text-2xl">Platform Peminjaman Ruang</h1>
           </div>
         </header>
-        {children}
+         {/* area content */}
+        <section className="m-10">{children}</section>
+
+        {/* area footer */}
+        <footer className="text-center text-blue-500" >
+          Copyright &copy; 2025 Woops - ERuang UTI
+        </footer>
       </body>
     </html>
   );
