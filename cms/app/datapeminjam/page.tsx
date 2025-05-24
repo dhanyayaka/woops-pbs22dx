@@ -11,37 +11,35 @@ export default function DataPeminjamPage() {
   const [data, setData] = useState(dummyData);
 
   return (
-    <div className="bg-white p-6 shadow-md rounded-md">
-      <h1 className="text-3xl font-bold text-blue-800 text-right mb-4 pr-2">E-Ruang UTI</h1>
+    <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-6 mt-10">
+  <h2 className="text-right text-2xl font-bold text-purple-700 mb-4">
+    E-Ruang UTI
+  </h2>
+  <table className="w-full table-auto border-collapse text-sm">
+    <thead>
+      <tr className="bg-gray-200 text-gray-700 text-left">
+        <th className="py-3 px-4 font-semibold">Aksi</th>
+        <th className="py-3 px-4 font-semibold">Nama Peminjam</th>
+        <th className="py-3 px-4 font-semibold">NPM</th>
+        <th className="py-3 px-4 font-semibold">Tanggal</th>
+      </tr>
+    </thead>
+    <tbody>
+      {data.map((item) => (
+        <tr key={item.npm} className="border-b hover:bg-gray-50">
+          <td className="py-3 px-4">
+            <button className="bg-red-500 hover:bg-red-600 text-white text-sm px-4 py-1 rounded transition">
+              Hapus
+            </button>
+          </td>
+          <td className="py-3 px-4 text-gray-800 font-medium">{item.nama}</td>
+          <td className="py-3 px-4 text-gray-700">{item.npm}</td>
+          <td className="py-3 px-4 text-gray-700">{item.tanggal}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
 
-      <table className="w-full border border-black text-center">
-        <thead className="bg-gray-200">
-          <tr>
-            <th className="border border-black py-2">Aksi</th>
-            <th className="border border-black py-2">Nama Peminjam</th>
-            <th className="border border-black py-2">NPM</th>
-            <th className="border border-black py-2">Tanggal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row) => (
-            <tr key={row.id}>
-              <td className="border border-black py-2">
-                <button className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">
-                  Hapus
-                </button>
-              </td>
-              <td className="border border-black py-2">{row.nama}</td>
-              <td className="border border-black py-2">{row.npm}</td>
-              <td className="border border-black py-2">{row.tanggal}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <p className="text-blue-500 mt-6 text-sm text-center">
-        Copyright © 2025 Woops - ERuang UTI
-      </p>
-    </div>
   );
 }
