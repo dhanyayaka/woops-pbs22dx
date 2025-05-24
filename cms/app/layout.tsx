@@ -31,14 +31,29 @@ export default function RootLayout({
         {/* Header */}
         <header className="bg-yellow-500 py-4 border-b border-black">
           <div className="flex justify-between items-center px-10">
-          <Image src="/images/LogoUTI.png" width={100} height={100} alt="Logo UTI" />
+            <Image
+              src="/images/LogoUTI.png"
+              width={100}
+              height={100}
+              alt="Logo UTI"
+            />
             <div className="flex space-x-6">
-              <h1 className="font-bold text-white text-xl cursor-pointer">Data Peminjam</h1>
-              <h2 className="font-bold text-white text-xl cursor-pointer">Data Ruang</h2>
+              <h1 className="font-bold text-white text-xl cursor-pointer">
+                Data Peminjam
+              </h1>
+              <h2 className="font-bold text-white text-xl cursor-pointer">
+                Data Ruang
+              </h2>
             </div>
           </div>
         </header>
 
+        {/* Konten Utama */}
+        <section className="m-10 text-center text-2xl font-bold">
+          {children}
+        </section>
+
+    
       </body>
     </html>
   );
