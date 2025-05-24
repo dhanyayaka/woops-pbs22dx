@@ -17,7 +17,7 @@ export default function DataPeminjamPage() {
   </h2>
   <table className="w-full table-auto border-collapse text-sm">
     <thead>
-      <tr className="bg-gray-200 text-gray-700 text-left">
+      <tr className="bg-gray-200 text-gray-700 text-center">
         <th className="py-3 px-4 font-semibold">Aksi</th>
         <th className="py-3 px-4 font-semibold">Nama Peminjam</th>
         <th className="py-3 px-4 font-semibold">NPM</th>
