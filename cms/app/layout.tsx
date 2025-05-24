@@ -33,8 +33,8 @@ export default function RootLayout({
           <div className="flex justify-between items-center px-10">
             <Image
               src="/images/logo.png"
-              width={100}
-              height={100}
+              width={300}
+              height={300}
               alt="Logo UTI"
             />
             <div className="flex space-x-6">
