@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,12 +39,16 @@ export default function RootLayout({
               alt="Logo UTI"
             />
             <div className="flex space-x-6">
-              <h1 className="font-bold text-white text-xl cursor-pointer">
-                Data Peminjam
-              </h1>
-              <h2 className="font-bold text-white text-xl cursor-pointer">
-                Data Ruang
-              </h2>
+              <Link href="/datapeminjam">
+                <h1 className="font-bold text-white text-xl cursor-pointer">
+                  Data Peminjam
+                </h1>
+              </Link>
+              <Link href="/dataruang">
+                <h2 className="font-bold text-white text-xl cursor-pointer">
+                  Data Ruang
+                </h2>
+              </Link>
             </div>
           </div>
         </header>
