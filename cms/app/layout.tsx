@@ -53,7 +53,10 @@ export default function RootLayout({
           {children}
         </section>
 
-    
+        {/* Footer */}
+        <footer className="text-center text-yellow-500 border-t border-black py-4">
+          Copyright &copy; 2025 Woops - ERuang UTI
+        </footer>
       </body>
     </html>
   );
