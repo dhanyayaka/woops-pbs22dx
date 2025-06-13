@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +41,7 @@ export default function RootLayout({
             ></Image>
             <div className="flex justify-end">
               <h1 className="font-bold text-white text-2xl pr-4">Data Ruang</h1>
-              <h2 className="font-bold text-white text-2xl pl-4 pr-4">Pinjam Ruang</h2>
+              <Link href={"/pruang"} className="font-bold text-white text-2xl pl-4 pr-4">Pinjam Ruang</Link>
             </div>
           </div>
         </header>
