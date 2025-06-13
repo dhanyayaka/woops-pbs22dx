@@ -20,10 +20,10 @@ export default function DataRuangPage() {
         <table className="w-full table-auto border-collapse text-sm rounded-lg overflow-hidden">
           <thead>
             <tr className="bg-gradient-to-r from-yellow-300 to-yellow-400 text-white text-center uppercase tracking-wide text-xs font-semibold">
-              <th className="py-4 px-4">Nama Ruang</th>
-              <th className="py-4 px-4">Lokasi</th>
-              <th className="py-4 px-4">Kapasitas</th>
-              <th className="py-4 px-4">Aksi</th>
+              <th className="py-4 px-4 text-black">Nama Ruang</th>
+              <th className="py-4 px-4 text-black">Lokasi</th>
+              <th className="py-4 px-4 text-black">Kapasitas</th>
+              <th className="py-4 px-4 text-black">Aksi</th>
             </tr>
           </thead>
           <tbody>
