@@ -43,7 +43,7 @@ export default function RootLayout({
               <h1 className="font-bold text-white text-2xl pr-4">Data Ruang</h1>
                 <Link
                 href={"/pruang"}
-                className="font-bold text-white text-2xl pl-4 pr-4 transition-colors duration-200 hover:text-yellow-900"
+                className="font-bold text-white text-2xl pl-4 pr-4 transition-colors duration-200 hover:text-red-700"
                 >
                 Pinjam Ruang
                 </Link>
