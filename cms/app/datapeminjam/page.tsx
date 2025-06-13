@@ -18,23 +18,23 @@ export default function DataPeminjamPage() {
   <table className="w-full table-auto border-collapse text-sm">
     <thead>
       <tr className="bg-gray-200 text-gray-700 text-center">
-        <th className="py-3 px-4 font-semibold">Aksi</th>
         <th className="py-3 px-4 font-semibold">Nama Peminjam</th>
         <th className="py-3 px-4 font-semibold">NPM</th>
         <th className="py-3 px-4 font-semibold">Tanggal</th>
+        <th className="py-3 px-4 font-semibold">Aksi</th>
       </tr>
     </thead>
     <tbody>
       {data.map((item) => (
         <tr key={item.npm} className="border-b hover:bg-gray-50">
+          <td className="py-3 px-4 text-gray-800 font-medium">{item.nama}</td>
+          <td className="py-3 px-4 text-gray-700">{item.npm}</td>
+          <td className="py-3 px-4 text-gray-700">{item.tanggal}</td>
           <td className="py-3 px-4">
             <button className="bg-red-500 hover:bg-red-600 text-white text-sm px-4 py-1 rounded transition">
               Hapus
             </button>
           </td>
-          <td className="py-3 px-4 text-gray-800 font-medium">{item.nama}</td>
-          <td className="py-3 px-4 text-gray-700">{item.npm}</td>
-          <td className="py-3 px-4 text-gray-700">{item.tanggal}</td>
         </tr>
       ))}
     </tbody>
