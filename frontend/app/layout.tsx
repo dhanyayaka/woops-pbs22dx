@@ -41,7 +41,12 @@ export default function RootLayout({
             ></Image>
             <div className="flex justify-end">
               <h1 className="font-bold text-white text-2xl pr-4">Data Ruang</h1>
-              <Link href={"/pruang"} className="font-bold text-white text-2xl pl-4 pr-4">Pinjam Ruang</Link>
+                <Link
+                href={"/pruang"}
+                className="font-bold text-white text-2xl pl-4 pr-4 transition-colors duration-200 hover:text-yellow-900"
+                >
+                Pinjam Ruang
+                </Link>
             </div>
           </div>
         </header>
