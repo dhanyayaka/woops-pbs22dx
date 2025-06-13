@@ -39,6 +39,11 @@ export default function RootLayout({
               alt="Logo UTI"
             />
             <div className="flex space-x-6">
+            <Link href="/">
+                <h1 className="font-bold text-white text-xl cursor-pointer">
+                  Beranda
+                </h1>
+              </Link>
               <Link href="/datapeminjam">
                 <h1 className="font-bold text-white text-xl cursor-pointer">
                   Data Peminjam
