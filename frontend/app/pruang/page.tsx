@@ -61,8 +61,8 @@ export default function PeminjamanRuang() {
               value={npm}
               onChange={(e) => setNpm(e.target.value)}
               required
-              pattern="[0-9]{10}"
-              title="NPM harus terdiri dari 10 digit angka"
+              pattern="[0-9]{8}"
+              title="NPM harus terdiri dari 8 digit angka"
             />
           </div>
           <div className="mb-4">
