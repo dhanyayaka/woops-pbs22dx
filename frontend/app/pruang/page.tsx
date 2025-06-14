@@ -8,13 +8,35 @@ export default function PeminjamanRuang() {
   const [waktuAwal, setWaktuAwal] = useState('');
   const [waktuAkhir, setWaktuAkhir] = useState('');
   const [keterangan, setKeterangan] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulasi penyimpanan data
+    setShowSuccess(true);
+    // Reset form jika perlu
+    setNamaPeminjam('');
+    setNpm('');
+    setNamaRuang('');
+    setWaktuAwal('');
+    setWaktuAkhir('');
+    setKeterangan('');
+    // Sembunyikan alert setelah beberapa detik
+    setTimeout(() => setShowSuccess(false), 3000);
+  };
 
   return (
     <div className="container mx-auto px-4">
       <h1 className="text-3xl font-bold text-center my-4">Peminjaman Ruang</h1>
       <div className="mt-8 max-w-2xl mx-auto">
-        
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {showSuccess && (
+          <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+            Data berhasil disimpan!
+          </div>
+        )}
+        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="namaPeminjam">
               Nama Peminjam *
