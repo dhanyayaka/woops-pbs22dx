@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from 'react';
 
-
 export default function PeminjamanRuang() {
   const [namaPeminjam, setNamaPeminjam] = useState('');
   const [npm, setNpm] = useState('');
@@ -9,7 +8,6 @@ export default function PeminjamanRuang() {
   const [waktuAwal, setWaktuAwal] = useState('');
   const [waktuAkhir, setWaktuAkhir] = useState('');
   const [keterangan, setKeterangan] = useState('');
- 
 
   return (
     <div className="container mx-auto px-4">
