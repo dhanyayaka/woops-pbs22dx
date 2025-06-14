@@ -154,7 +154,7 @@ export default function PeminjamanRuang() {
           </div>
         </form>
       </div>
-      {/* <div className="my-8">
+      <div className="my-8">
         <h2 className="text-xl font-semibold mb-2">Data Ruangan</h2>
         {loading ? (
           <div>Loading...</div>
@@ -180,7 +180,7 @@ export default function PeminjamanRuang() {
             </tbody>
           </table>
         )}
-      </div> */}
+      </div>
     </div>
   );
 }
