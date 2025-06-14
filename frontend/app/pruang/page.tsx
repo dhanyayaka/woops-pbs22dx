@@ -100,7 +100,14 @@ export default function PeminjamanRuang() {
               id="waktuAkhir"
               type="datetime-local"
               value={waktuAkhir}
-              onChange={(e) => setWaktuAkhir(e.target.value)}
+              onChange={(e) => {
+                const waktuAkhirBaru = e.target.value;
+                if (waktuAkhirBaru < waktuAwal) {
+                  alert("Waktu akhir harus lebih besar dari waktu awal.");
+                } else {
+                  setWaktuAkhir(waktuAkhirBaru);
+                }
+              }}
               required
             />
           </div>
