@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function PeminjamanRuang() {
   const [namaPeminjam, setNamaPeminjam] = useState('');
@@ -9,8 +9,29 @@ export default function PeminjamanRuang() {
   const [waktuAkhir, setWaktuAkhir] = useState('');
   const [keterangan, setKeterangan] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [ruangan, setRuangan] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  
+  useEffect(() => {
+    const fetchRuangan = async () => {
+      try {
+        const res = await fetch("/api/ruangan");
+        if (!res.ok) {
+          throw new Error("Gagal mengambil data ruangan");
+        }
+        const data = await res.json();
+        setRuangan(data);
+        setError(null);
+      } catch (error: any) {
+        setRuangan([]);
+        setError("Data ruangan tidak tersedia.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchRuangan();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -132,6 +153,33 @@ export default function PeminjamanRuang() {
             </button>
           </div>
         </form>
+      </div>
+      <div className="my-8">
+        <h2 className="text-xl font-semibold mb-2">Data Ruangan</h2>
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div className="text-red-500">{error}</div>
+        ) : (
+          <table className="min-w-full bg-white border">
+            <thead>
+              <tr>
+                <th className="py-2 px-4 border">No</th>
+                <th className="py-2 px-4 border">Nama Ruang</th>
+                <th className="py-2 px-4 border">Keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ruangan.map((r, idx) => (
+                <tr key={r.id || idx}>
+                  <td className="py-2 px-4 border">{idx + 1}</td>
+                  <td className="py-2 px-4 border">{r.namaRuang || r.nama_ruang}</td>
+                  <td className="py-2 px-4 border">{r.keterangan}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
