@@ -41,6 +41,12 @@ export default function RootLayout({
             ></Image>
             <div className="flex justify-end">
               <Link
+                href="/"
+                className="font-bold text-white text-2xl pl-4 pr-4 transition-colors duration-200 hover:text-red-700"
+              >
+                Beranda
+              </Link>
+              <Link
                 href="/druang"
                 className="font-bold text-white text-2xl pl-4 pr-4 transition-colors duration-200 hover:text-red-700"
                 passHref
