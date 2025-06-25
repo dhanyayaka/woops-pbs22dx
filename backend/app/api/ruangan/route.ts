@@ -1,144 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "../../general";
+// menarik fungsi prisma dari folder general
+import { prisma } from "../general";
 
-// DELETE peminjam by id
-export const DELETE = async (
-    request: NextRequest,
-    props: { params: Promise<{ id: string }> }
-) => {
-    try {
-        const params = await props.params;
-        const check = await prisma.tb_peminjaman.findUnique({
-            where: {
-                id: Number(params.id),
-            },
-        });
+// buat service "GET" untuk tb_ruangan
+export const GET = async () => {
+    // tampilkan data/record dari tb_ruangan
+    const view = await prisma.tb_ruangan.findMany({});
 
-        if (!check) {
-            return NextResponse.json(
-                {
-                    metaData: {
-                        error: 1,
-                        message: process.env.PEMINJAM_NOT_FOUND_MESSAGE,
-                        status: 404,
-                    },
-                },
-                {
-                    status: 200,
-                }
-            );
-        }
-
-        await prisma.tb_peminjaman.delete({
-            where: {
-                id: Number(params.id),
-            },
-        });
-
-        return NextResponse.json(
-            {
-                metaData: {
-                    error: 0,
-                    message: "Data Peminjam Berhasil Dihapus !!!"   ,
-                    status: 200,
-                },
-            },
-            {
-                status: 200,
-            }
-        );
-    } catch (e: any) {
+    //   jika data kosong
+    if (view.length == 0) {
+        // return getResponseRuanganNotFound
         return NextResponse.json(
             {
                 metaData: {
                     error: 1,
-                    message: process.env.PARAMETER_MUST_BE_NUMERIC_MESSAGE,
-                    status: 400,
-                },
-            },
-            {
-                status: 400,
-            }
-        );
-    }
-};
-
-// GET peminjam detail by id
-export const GET = async (
-    request: NextRequest,
-    props: { params: Promise<{ id: string }> }
-) => {
-    try {
-        const params = await props.params;
-        const check = await prisma.tb_peminjaman.findUnique({
-            where: {
-                id: Number(params.id),
-            },
-        });
-
-        if (!check) {
-            return NextResponse.json(
-                {
-                    metaData: {
-                        error: 1,
-                        message: "Data Peminjam Tidak Ditemukan !!!",
-                        status: 404,
-                    },
-                },
-                {
-                    status: 404,
-                }
-            );
-        }
-
-        return NextResponse.json(
-            {
-                metaData: {
-                    error: 0,
-                    message: null,
-                    status: 200,
-                },
-                data_peminjam: check,
-            },
-            {
-                status: 200,
-            }
-        );
-    } catch (e: any) {
-        return NextResponse.json(
-            {
-                metaData: {
-                    error: 1,
-                    message: "Parameter harus berupa angka !!!",
-                    status: 400,
-                },
-            },
-            {
-                status: 400,
-            }
-        );
-    }
-};
-
-// PUT update peminjam by id
-export const PUT = async (
-    request: NextRequest,
-    props: { params: Promise<{ id: string }> }
-) => {
-    const params = await props.params;
-
-    const check = await prisma.tb_peminjaman.findUnique({
-        where: {
-            id: Number(params.id),
-        },
-    });
-
-    if (!check) {
-        return NextResponse.json(
-            {
-                metaData: {
-                    error: 1,
-                    message: process.env.PEMINJAM_NOT_FOUND_MESSAGE,
+                    message: "Data Ruangan Tidak Ditemukan !!!",
                     status: 404,
                 },
             },
@@ -148,34 +24,70 @@ export const PUT = async (
         );
     }
 
-    // Ganti field sesuai dengan struktur tb_peminjam Anda
-    const { namaPeminjam, npm, namaRuangan, tanggalPeminjam, waktuMulai, waktuAkhir, keterangan } = await request.json();
-
-    await prisma.tb_peminjaman.update({
-        where: {
-            id: Number(params.id),
-        },
-        data: {
-            namaPeminjam,
-            npm,
-            namaRuangan,
-            tanggalPeminjam,
-            waktuMulai,
-            waktuAkhir,
-            keterangan,
-        },
-    });
-
+    // proses/response API
     return NextResponse.json(
         {
             metaData: {
                 error: 0,
-                message: "Data Peminjam Berhasil Diupdate !!!",
+                message: null,
                 status: 200,
             },
+            data_ruangan: view,
         },
         {
             status: 200,
+        }
+    );
+};
+
+// buat service POST (tb_ruangan) untuk simpan data
+export const POST = async (request: NextRequest) => {
+    // buat object untuk data isian
+    const { namaRuangan, kapasitas, keterangan } = await request.json();
+
+    // cek apakah ruangan dengan nama_ruangan sudah pernah dibuat (contoh validasi)
+    const check = await prisma.tb_ruangan.findMany({
+        where: {
+            namaRuangan: namaRuangan,
+        },
+    });
+
+    // jika ruangan ditemukan
+    if (check.length == 1) {
+        return NextResponse.json(
+            {
+                metaData: {
+                    error: 1,
+                    message: "Data Ruangan Gagal Disimpan : Ruangan sudah terdaftar",
+                    status: 409,
+                },
+            },
+            {
+                status: 409,
+            }
+        );
+    }
+    // simpan data
+    const save = await prisma.tb_ruangan.create({
+        data: {
+            namaRuangan,
+            kapasitas,
+            keterangan
+        },
+    });
+
+    // proses/response API
+    return NextResponse.json(
+        {
+            metaData: {
+                error: 0,
+                message: "Data ruangan berhasil disimpan",
+                status: 201,
+            },
+            data_ruangan: save,
+        },
+        {
+            status: 201,
         }
     );
 };
