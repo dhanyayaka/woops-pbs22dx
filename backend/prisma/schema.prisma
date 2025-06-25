@@ -12,7 +12,7 @@ model tb_peminjaman {
   namaPeminjam    String   @db.VarChar(50)
   npm             String   @db.VarChar(20)
   namaRuangan     String   @db.VarChar(50)
-  tanggalPeminjam DateTime @db.Date
+  tanggalPeminjam String
   waktuMulai      String   @db.VarChar(10)
   waktuAkhir      String   @db.VarChar(10)
   keterangan      String   @db.VarChar(255)
