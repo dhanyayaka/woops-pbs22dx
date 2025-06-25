@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 // menarik fungsi prisma dari folder general
-import { prisma, setBycrypt } from "@/app/api/general";
+import { prisma } from "@/app/api/general";
 
 // buat service "GET" untuk peminjaman
 export const GET = async () => {
@@ -43,7 +43,15 @@ export const GET = async () => {
 // buat service POST (tb_user) untuk simpan data
 export const POST = async (request: NextRequest) => {
   // buat object untuk data isian
-  const { namaPeminjam_value, npm_value, namaRuangan_value, tanggalPeminjam_value, waktuMulai_value, waktuAkhir_value, keterangan_value } = await request.json();
+  const body = await request.json();
+
+  const namaPeminjam_value = body.namaPeminjam;
+  const npm_value = body.npm;
+  const namaRuangan_value = body.namaRuangan;
+  const tanggalPeminjam_value = body.tanggalPeminjam;
+  const waktuMulai_value = body.waktuMulai;
+  const waktuAkhir_value = body.waktuAkhir;
+  const keterangan_value = body.keterangan;
 
   // cek apakah username sudah pernah digunakan
   const check = await prisma.tb_peminjaman.findMany({
@@ -73,7 +81,7 @@ export const POST = async (request: NextRequest) => {
       namaPeminjam: namaPeminjam_value,
       npm: npm_value,
       namaRuangan: namaRuangan_value,
-      tanggalPeminjam: new Date(tanggalPeminjam_value),
+      tanggalPeminjam: tanggalPeminjam_value,
       waktuMulai: waktuMulai_value,
       waktuAkhir: waktuAkhir_value,
       keterangan: keterangan_value,
@@ -88,7 +96,7 @@ export const POST = async (request: NextRequest) => {
         message: "Data Peminjaman berhasil disimpan",
         status: 201,
       },
-      // data_user: save,
+      data_peminjaman: save,
     },
     {
       status: 201,
