@@ -24,3 +24,11 @@ model tb_ruangan {
   kapasitas   Int
   keterangan  String @db.VarChar(255)
 }
+
+model tb_user {
+  id       Int    @id @default(autoincrement())
+  nama     String @db.VarChar(50)
+  npm      String @db.VarChar(20)
+  username String @db.VarChar(50)
+  password String @db.VarChar(255)
+}
