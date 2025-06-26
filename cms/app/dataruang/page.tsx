@@ -35,8 +35,7 @@ export default function DataRuangPage() {
       </h2>
 
       <div className="overflow-x-auto">
-  <table className="w-full table-auto border-collapse text-sm rounded-lg overflow-hidden">
-
+        <table className="w-full table-auto border-collapse text-sm rounded-lg overflow-hidden">
           <thead>
             <tr className="bg-gradient-to-r from-yellow-300 to-yellow-400 text-white text-center uppercase tracking-wide text-xs font-semibold">
               <th className="py-4 px-4 text-black">Nama Ruangan</th>
@@ -53,12 +52,13 @@ export default function DataRuangPage() {
                   index % 2 === 0 ? "bg-yellow-50" : "bg-white"
                 } hover:bg-yellow-100 transition`}
               >
-                <td className="py-3 px-4 text-yellow-900 font-medium">
-                  {item.namaRuangan}
-                </td>
-                <td className="py-3 px-4 text-black">{item.kapasitas}</td>
-                <td className="py-3 px-4 text-black">{item.keterangan}</td>
-                <td className="py-3 px-4 text-black">
+                <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
+
+                <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
+
+                <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
+
+                <td className="py-3 px-4 text-gray-800 font-medium">
                   <button
                     onClick={() => handleDelete(item.id)}
                     className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full transition transform hover:scale-105"
