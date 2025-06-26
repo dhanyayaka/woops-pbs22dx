@@ -4,6 +4,17 @@ import React, { useRef, useState } from "react";
 
 export default function AddPeminjaman() {
   
+  export default function AddPeminjaman() {
+  // State untuk error
+  const [errors, setErrors] = useState({
+    namaPeminjam: false,
+    npm: false,
+    namaRuangan: false,
+    tanggalPeminjam: false,
+    waktuMulai: false,
+    waktuAkhir: false,
+    keterangan: false,
+  });
 
   return (
     <div>
