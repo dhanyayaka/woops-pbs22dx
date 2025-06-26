@@ -24,7 +24,10 @@ const dummyRuang = [
 
 export default function DataRuangPage() {
   const [data, setData] = useState(dummyRuang);
-
+  const handleDelete = (id: number) => {
+    setData(prev => prev.filter(item => item.id !== id));
+  };
+  
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-8 mt-12 border border-yellow-200">
       <h2 className="text-right text-3xl font-bold text-yellow-700 mb-6">
@@ -55,12 +58,14 @@ export default function DataRuangPage() {
                 <td className="py-3 px-4 text-black">{item.kapasitas}</td>
                 <td className="py-3 px-4 text-black">{item.keterangan}</td>
                 <td className="py-3 px-4 text-black">
-                  <button
-                    className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full transition transform hover:scale-105"
-                    title="Hapus Ruang"
-                  >
-                    Hapus
-                  </button>
+                <button
+  onClick={() => handleDelete(item.id)}
+  className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full transition transform hover:scale-105"
+  title="Hapus Ruang"
+>
+  Hapus
+</button>
+
                 </td>
               </tr>
             ))}
