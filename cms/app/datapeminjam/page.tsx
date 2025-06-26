@@ -47,7 +47,9 @@ export default function DataPeminjamPage() {
       </h2>
 
       {loading ? (
-        <p className="text-center text-yellow-600 font-semibold">Memuat data...</p>
+        <p className="text-center text-yellow-600 font-semibold">
+          Memuat data...
+        </p>
       ) : data.length === 0 ? (
         <p className="text-center text-gray-500">Tidak ada data peminjaman.</p>
       ) : (
@@ -72,10 +74,16 @@ export default function DataPeminjamPage() {
                     index % 2 === 0 ? "bg-yellow-50" : "bg-white"
                   } hover:bg-yellow-100 transition`}
                 >
-                  <td className="py-3 px-4 font-medium text-yellow-900">{item.namaPeminjam}</td>
+                  <td className="py-3 px-4 font-medium text-yellow-900">
+                    {item.namaPeminjam}
+                  </td>
                   <td className="py-3 px-4 text-gray-700">{item.npm}</td>
-                  <td className="py-3 px-4 text-gray-700">{item.namaRuangan}</td>
-                  <td className="py-3 px-4 text-gray-700">{item.tanggalPeminjam}</td>
+                  <td className="py-3 px-4 text-gray-700">
+                    {item.namaRuangan}
+                  </td>
+                  <td className="py-3 px-4 text-gray-700">
+                    {item.tanggalPeminjam}
+                  </td>
                   <td className="py-3 px-4 text-gray-700">
                     {item.waktuMulai} - {item.waktuAkhir}
                   </td>
@@ -83,8 +91,7 @@ export default function DataPeminjamPage() {
                   <td className="py-3 px-4">
                     <button
                       className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full transition transform hover:scale-105"
-                      title="Hapus Peminjam"
-                      onClick={() => alert(`Hapus ID: ${item.id}`)} // Sementara
+                      onClick={() => alert(`Hapus ID: ${item.id}`)}
                     >
                       Hapus
                     </button>
