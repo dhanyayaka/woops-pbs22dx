@@ -23,6 +23,11 @@ export default function AddPeminjaman() {
   const waktuAkhirRef = useRef<HTMLInputElement>(null);
   const keteranganRef = useRef<HTMLInputElement>(null);
 
+    // Fungsi reload
+  const setReload = () => {
+    location.href = "/pruang";
+  };
+
   setErrors({
       namaPeminjam: !namaPeminjam,
       npm: !npm,
