@@ -47,11 +47,11 @@ export default function DataRuangPage() {
           <tbody>
             {data.map((item, index) => (
               <tr
-                key={item.id}
-                className={`text-center ${
-                  index % 2 === 0 ? "bg-yellow-50" : "bg-white"
-                } hover:bg-yellow-100 transition`}
-              >
+              key={item.id}
+              className={`text-center ${
+                index % 2 === 0 ? "bg-yellow-50" : "bg-white"
+              } hover:bg-yellow-100 transition-colors duration-200`}
+            >            
                 <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
 
                 <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
