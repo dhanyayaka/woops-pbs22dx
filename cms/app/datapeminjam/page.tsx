@@ -14,6 +14,7 @@ interface Peminjaman {
 }
 
 export default function DataPeminjamPage() {
+  const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<Peminjaman[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,7 +32,9 @@ export default function DataPeminjamPage() {
           console.error(result.metaData?.message || "Terjadi kesalahan");
         }
       } catch (error) {
-        console.error("Gagal mengambil data:", error);
+        console.error(error);
+        setError("Gagal mengambil data dari server.");
+        setLoading(false);
       } finally {
         setLoading(false);
       }
@@ -98,6 +101,9 @@ export default function DataPeminjamPage() {
                   </td>
                 </tr>
               ))}
+              {error && (
+                <p className="text-red-600 text-sm text-center mt-2">{error}</p>
+              )}
             </tbody>
           </table>
         </div>
