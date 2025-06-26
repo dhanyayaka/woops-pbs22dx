@@ -54,9 +54,9 @@ export default function DataRuangPage() {
             >            
                 <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
 
-                <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
+                <td className="py-3 px-4 text-gray-800 font-medium">{item.kapasitas}</td>
 
-                <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
+                <td className="py-3 px-4 text-gray-800 font-medium">{item.keterangan}</td>
 
                 <td className="py-3 px-4 text-gray-800 font-medium">
                   <button
