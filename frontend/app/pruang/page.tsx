@@ -28,6 +28,16 @@ export default function AddPeminjaman() {
     location.href = "/pruang";
   };
 
+    // Fungsi simpan
+  const setSave = () => {
+    const namaPeminjam = namaPeminjamRef.current?.value.trim() || "";
+    const npm = npmRef.current?.value.trim() || "";
+    const namaRuangan = namaRuanganRef.current?.value.trim() || "";
+    const tanggalPeminjam = tanggalPeminjamRef.current?.value.trim() || "";
+    const waktuMulai = waktuMulaiRef.current?.value.trim() || "";
+    const waktuAkhir = waktuAkhirRef.current?.value.trim() || "";
+    const keterangan = keteranganRef.current?.value.trim() || "";
+
   setErrors({
       namaPeminjam: !namaPeminjam,
       npm: !npm,
@@ -37,7 +47,6 @@ export default function AddPeminjaman() {
       waktuAkhir: !waktuAkhir,
       keterangan: !keterangan,
     });
-
 
   return (
     <div>
