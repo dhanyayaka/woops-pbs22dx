@@ -22,7 +22,7 @@ export default function DataPeminjamPage() {
   useEffect(() => {
     const fetchPeminjaman = async () => {
       try {
-        const res = await fetch("http://localhost:3001/api/peminjaman", {
+        const res = await fetch("http://localhost:3001/api/peminjam", {
           cache: "no-store", // Untuk development, agar data selalu fresh
         });
         const result = await res.json();
@@ -53,13 +53,6 @@ export default function DataPeminjamPage() {
       <h2 className="text-right text-3xl font-bold text-yellow-700 mb-6">
         📑 Data Peminjam | E-Ruang UTI
       </h2>
-      <input
-        type="text"
-        placeholder="Cari nama peminjam..."
-        className="border px-3 py-1 mb-4 rounded w-full max-w-sm"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
       {loading ? (
         <p className="text-center text-yellow-600 font-semibold">
           Memuat data...
