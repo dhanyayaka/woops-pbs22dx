@@ -20,14 +20,14 @@ export default function DaftarRuangan() {
                 setLoading(false);
             })
             .catch((error) => {
-                console.error("Terjadi kesalahan saat mengambil data ruangan:", error);
+                console.error("Terjadi kesalahan saat mengambil data Ruangan:", error);
                 setLoading(false);
             });
     }, []);
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Daftar Ruangan</h1>
+            <h1 className="text-2xl font-bold mb-4">Daftar Data Ruangan</h1>
             {loading ? (
                 <p>Loading...</p>
             ) : (
