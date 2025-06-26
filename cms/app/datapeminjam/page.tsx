@@ -14,6 +14,7 @@ interface Peminjaman {
 }
 
 export default function DataPeminjamPage() {
+  const [search, setSearch] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<Peminjaman[]>([]);
   const [loading, setLoading] = useState(true);
@@ -43,12 +44,22 @@ export default function DataPeminjamPage() {
     fetchPeminjaman();
   }, []);
 
+  const filteredData = data.filter((item) =>
+    item.namaPeminjam.toLowerCase().includes(search.toLowerCase())
+  );
+  
   return (
     <div className="max-w-7xl mx-auto bg-white rounded-xl shadow-xl p-8 mt-12 border border-yellow-200">
       <h2 className="text-right text-3xl font-bold text-yellow-700 mb-6">
         📑 Data Peminjam | E-Ruang UTI
       </h2>
-
+      <input
+  type="text"
+  placeholder="Cari nama peminjam..."
+  className="border px-3 py-1 mb-4 rounded w-full max-w-sm"
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+/>
       {loading ? (
         <p className="text-center text-yellow-600 font-semibold">
           Memuat data...
