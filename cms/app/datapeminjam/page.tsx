@@ -1,6 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
 
+interface Peminjaman {
+  id: number;
+  namaPeminjam: string;
+  npm: string;
+  namaRuangan: string;
+  tanggalPeminjam: string;
+  waktuMulai: string;
+  waktuAkhir: string;
+  keterangan: string;
+}
+
+const [data, setData] = useState<Peminjaman[]>([]);
 export default function DataPeminjamPage() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
