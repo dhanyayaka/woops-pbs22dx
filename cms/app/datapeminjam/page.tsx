@@ -64,18 +64,18 @@ export default function DataPeminjamPage() {
                   index % 2 === 0 ? "bg-yellow-50" : "bg-white"
                 } hover:bg-yellow-100 transition`}
               >
-                <td className="py-3 px-4 font-medium text-yellow-900">
+                <td className="py-3 px-4 text-gray-800 font-medium">
                   {item.namaPeminjam}
                 </td>
-                <td className="py-3 px-4 text-gray-700">{item.npm}</td>
-                <td className="py-3 px-4 text-gray-700">{item.namaRuangan}</td>
-                <td className="py-3 px-4 text-gray-700">
+                <td className="py-3 px-4 text-gray-800 font-medium">{item.npm}</td>
+                <td className="py-3 px-4 text-gray-800 font-medium">{item.namaRuangan}</td>
+                <td className="py-3 px-4 text-gray-800 font-medium">
                   {item.tanggalPeminjam}
                 </td>
-                <td className="py-3 px-4 text-gray-700">
+                <td className="py-3 px-4 text-gray-800 font-medium">
                   {item.waktuMulai} - {item.waktuAkhir}
                 </td>
-                <td className="py-3 px-4 text-gray-700">{item.keterangan}</td>
+                <td className="py-3 px-4 text-gray-800 font-medium">{item.keterangan}</td>
                 <td className="py-3 px-4">
                   <button
                     className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full transition transform hover:scale-105"
