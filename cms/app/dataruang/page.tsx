@@ -39,6 +39,14 @@ export default function DataRuangPage() {
       <h2 className="text-right text-3xl font-bold text-yellow-700 mb-6">
         📘 Data Ruangan | E-Ruang UTI
       </h2>
+      {loading ? (
+  <p className="text-center text-yellow-600 font-medium">Memuat data...</p>
+) : data.length === 0 ? (
+  <p className="text-center text-gray-500">Tidak ada data ruangan.</p>
+) : (
+  
+)}
     </div>
+    
   );
 }
