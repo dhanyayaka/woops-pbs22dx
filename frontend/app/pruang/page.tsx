@@ -14,6 +14,15 @@ export default function AddPeminjaman() {
     keterangan: false,
   });
 
+   // Ref untuk input
+  const namaPeminjamRef = useRef<HTMLInputElement>(null);
+  const npmRef = useRef<HTMLInputElement>(null);
+  const namaRuanganRef = useRef<HTMLInputElement>(null);
+  const tanggalPeminjamRef = useRef<HTMLInputElement>(null);
+  const waktuMulaiRef = useRef<HTMLInputElement>(null);
+  const waktuAkhirRef = useRef<HTMLInputElement>(null);
+  const keteranganRef = useRef<HTMLInputElement>(null);
+
   setErrors({
       namaPeminjam: !namaPeminjam,
       npm: !npm,
