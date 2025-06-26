@@ -78,58 +78,128 @@ export default function AddPeminjaman() {
   };
 
   return (
-    <div>
-      <title>Tambah Data Peminjaman</title>
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend text-[14px]">Nama Peminjam</legend>
-        <input ref={namaPeminjamRef} type="text" className="input" placeholder="Isi Nama Peminjam" />
-        {errors.namaPeminjam && <p className="label text-red-700">Nama Peminjam harus diisi</p>}
-      </fieldset>
+    <div className="flex justify-center items-center min-h-screen bg-gray-50">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
+        <h1 className="text-2xl font-bold mb-6 text-center">Tambah Data Peminjaman</h1>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            setSave();
+          }}
+        >
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Nama Peminjam</label>
+              <input
+                ref={namaPeminjamRef}
+                type="text"
+                className={`input w-full ${errors.namaPeminjam ? "border-red-500" : ""}`}
+                placeholder="Isi Nama Peminjam"
+              />
+              {errors.namaPeminjam && (
+                <p className="text-xs text-red-600 mt-1">Nama Peminjam harus diisi</p>
+              )}
+            </div>
+            <hr className="my-2 border-gray-200" />
 
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend text-[14px]">NPM</legend>
-        <input ref={npmRef} type="text" className="input" placeholder="Isi NPM" />
-        {errors.npm && <p className="label text-red-700">NPM harus diisi</p>}
-      </fieldset>
+            <div>
+              <label className="block text-sm font-medium mb-1">NPM</label>
+              <input
+                ref={npmRef}
+                type="text"
+                className={`input w-full ${errors.npm ? "border-red-500" : ""}`}
+                placeholder="Isi NPM"
+              />
+              {errors.npm && (
+                <p className="text-xs text-red-600 mt-1">NPM harus diisi</p>
+              )}
+            </div>
+            <hr className="my-2 border-gray-200" />
 
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend text-[14px]">Nama Ruangan</legend>
-        <input ref={namaRuanganRef} type="text" className="input" placeholder="Isi Nama Ruangan" />
-        {errors.namaRuangan && <p className="label text-red-700">Nama Ruangan harus diisi</p>}
-      </fieldset>
+            <div>
+              <label className="block text-sm font-medium mb-1">Nama Ruangan</label>
+              <input
+                ref={namaRuanganRef}
+                type="text"
+                className={`input w-full ${errors.namaRuangan ? "border-red-500" : ""}`}
+                placeholder="Isi Nama Ruangan"
+              />
+              {errors.namaRuangan && (
+                <p className="text-xs text-red-600 mt-1">Nama Ruangan harus diisi</p>
+              )}
+            </div>
+            <hr className="my-2 border-gray-200" />
 
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend text-[14px]">Tanggal Peminjaman</legend>
-        <input ref={tanggalPeminjamRef} type="date" className="input" />
-        {errors.tanggalPeminjam && <p className="label text-red-700">Tanggal Peminjaman harus diisi</p>}
-      </fieldset>
+            <div>
+              <label className="block text-sm font-medium mb-1">Tanggal Peminjaman</label>
+              <input
+                ref={tanggalPeminjamRef}
+                type="date"
+                className={`input w-full ${errors.tanggalPeminjam ? "border-red-500" : ""}`}
+              />
+              {errors.tanggalPeminjam && (
+                <p className="text-xs text-red-600 mt-1">Tanggal Peminjaman harus diisi</p>
+              )}
+            </div>
+            <hr className="my-2 border-gray-200" />
 
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend text-[14px]">Waktu Mulai</legend>
-        <input ref={waktuMulaiRef} type="time" className="input" />
-        {errors.waktuMulai && <p className="label text-red-700">Waktu Mulai harus diisi</p>}
-      </fieldset>
+            <div className="flex gap-4">
+              <div className="flex-1">
+                <label className="block text-sm font-medium mb-1">Waktu Mulai</label>
+                <input
+                  ref={waktuMulaiRef}
+                  type="time"
+                  className={`input w-full ${errors.waktuMulai ? "border-red-500" : ""}`}
+                />
+                {errors.waktuMulai && (
+                  <p className="text-xs text-red-600 mt-1">Waktu Mulai harus diisi</p>
+                )}
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm font-medium mb-1">Waktu Akhir</label>
+                <input
+                  ref={waktuAkhirRef}
+                  type="time"
+                  className={`input w-full ${errors.waktuAkhir ? "border-red-500" : ""}`}
+                />
+                {errors.waktuAkhir && (
+                  <p className="text-xs text-red-600 mt-1">Waktu Akhir harus diisi</p>
+                )}
+              </div>
+            </div>
+            <hr className="my-2 border-gray-200" />
 
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend text-[14px]">Waktu Akhir</legend>
-        <input ref={waktuAkhirRef} type="time" className="input" />
-        {errors.waktuAkhir && <p className="label text-red-700">Waktu Akhir harus diisi</p>}
-      </fieldset>
+            <div>
+              <label className="block text-sm font-medium mb-1">Keterangan</label>
+              <input
+                ref={keteranganRef}
+                type="text"
+                className={`input w-full ${errors.keterangan ? "border-red-500" : ""}`}
+                placeholder="Isi Keterangan"
+              />
+              {errors.keterangan && (
+                <p className="text-xs text-red-600 mt-1">Keterangan harus diisi</p>
+              )}
+            </div>
+          </div>
 
-      <fieldset className="fieldset">
-        <legend className="fieldset-legend text-[14px]">Keterangan</legend>
-        <input ref={keteranganRef} type="text" className="input" placeholder="Isi Keterangan" />
-        {errors.keterangan && <p className="label text-red-700">Keterangan harus diisi</p>}
-      </fieldset>
-
-      <section className="mt-5">
-        <button onClick={setSave} className="btn btn-success mr-1.5 w-32">
-          Simpan
-        </button>
-        <button onClick={setReload} className="btn btn-error ml-1.5 w-32">
-          Batal
-        </button>
-      </section>
+          <div className="flex justify-end gap-3 mt-8">
+            <button
+              type="submit"
+              className="btn btn-success w-32"
+            >
+              Simpan
+            </button>
+            <button
+              type="button"
+              onClick={setReload}
+              className="btn btn-error w-32"
+            >
+              Batal
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
