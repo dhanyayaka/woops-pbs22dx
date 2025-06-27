@@ -13,11 +13,24 @@ export default function DaftarRuangan() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/ruangan") 
-            .then((res) => res.json())
+        fetch("http://localhost:3001/api/ruangan")
+            .then(async (res) => {
+                if (!res.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const text = await res.text();
+                if (!text) {
+                    return [];
+                }
+                try {
+                    return JSON.parse(text);
+                } catch (e) {
+                    console.error("Invalid JSON:", e);
+                    return [];
+                }
+            })
             .then((data) => {
                 setDataRuangan(Array.isArray(data) ? data : []);
-                setDataRuangan(data);
                 setLoading(false);
             })
             .catch((error) => {
