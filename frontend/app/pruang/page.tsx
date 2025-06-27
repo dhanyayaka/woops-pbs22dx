@@ -68,7 +68,7 @@ export default function AddPeminjaman() {
           keterangan,
         })
         .then((response) => {
-          alert(response.data.metaData?.message || "Berhasil menyimpan data");
+          alert(response.data.metaData?.message || "Data Peminjam berhasil disimpan");
           setReload();
         })
         .catch((error) => {

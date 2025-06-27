@@ -16,8 +16,7 @@ export default function DaftarRuangan() {
         fetch("http://localhost:3001/api/ruangan") 
             .then((res) => res.json())
             .then((data) => {
-                setDataRuangan(Array.isArray(data) ? data : []);
-                setDataRuangan(data);
+                setDataRuangan(Array.isArray(data) ? data : [])
                 setLoading(false);
             })
             .catch((error) => {
