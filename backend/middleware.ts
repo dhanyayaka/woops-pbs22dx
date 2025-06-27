@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
     return preflight
   }
 
-  // Add CORS Headers to all other requests
+  // Add CORS headers to all other requests
   const response = NextResponse.next()
   response.headers.set('Access-Control-Allow-Origin', '*')
   response.headers.set('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, OPTIONS')
