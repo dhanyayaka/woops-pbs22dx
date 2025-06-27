@@ -58,7 +58,7 @@ export default function AddPeminjaman() {
       keterangan
     ) {
       axios
-        .post("http://localhost:3001/api/peminjaman", {
+        .post("http://localhost:3001/api/peminjam", {
           namaPeminjam,
           npm,
           namaRuangan,
@@ -186,6 +186,7 @@ export default function AddPeminjaman() {
           <div className="flex justify-end gap-3 mt-8">
             <button
               type="submit"
+              onClick={setSave}
               className="w-32 py-2 px-4 rounded-lg border-2 border-green-500 text-green-700 font-semibold bg-white hover:bg-green-700 hover:border-green-800 hover:text-white active:bg-green-900 transition-colors duration-200 shadow-sm flex items-center justify-center gap-2"
             >
               <svg
